@@ -15,6 +15,8 @@
 </div>
 
 <!-- PROJECT LOGO -->
+<img width="1904" height="864" alt="image" src="https://github.com/user-attachments/assets/70366a28-7cdc-4e7f-807b-347c7c63633d" />
+
 <br />
 <div align="center">
  
