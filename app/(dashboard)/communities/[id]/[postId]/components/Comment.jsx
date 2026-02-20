@@ -2,8 +2,8 @@
 import { useState, useTransition } from "react";
 import CommentForm from "./CommentForm";
 import Reply from "./Reply";
-import { deleteComment } from "app/actions/actions"
-import { formatTimeToNow } from "app/libs/utils";
+import { deleteComment } from "app/actions/actions";
+import { formatTimeToNow } from "@/app/libs/utils.js";
 const Comment = ({ comment, user, key }) => {
   const [replyForm, setReplyForm] = useState(false);
   const [settings, setSettings] = useState(false);
@@ -58,13 +58,21 @@ const Comment = ({ comment, user, key }) => {
                   </a>
                 </li>
                 <li>
-                  {comment.authorId === user.id && <button
-                    onClick={() => startTransition(async () => {
-                      await deleteComment(comment.postId, comment.id, comment.replies);
-                    })}
-                    className="block py-2 px-4 w-full text-left hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                    {isPending ? "loading" : "Remove"}
-                  </button>}
+                  {comment.authorId === user.id && (
+                    <button
+                      onClick={() =>
+                        startTransition(async () => {
+                          await deleteComment(
+                            comment.postId,
+                            comment.id,
+                            comment.replies,
+                          );
+                        })
+                      }
+                      className="block py-2 px-4 w-full text-left hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                      {isPending ? "loading" : "Remove"}
+                    </button>
+                  )}
                 </li>
                 <li>
                   <a

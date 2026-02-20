@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Button } from "app/components/ui/button.jsx";
+import { Button } from "@/app/components/ui/button.jsx";
 import { signOut } from "next-auth/react";
 
 const LogOutBtn = () => {

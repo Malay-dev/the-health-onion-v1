@@ -12,7 +12,7 @@ import {
 import { Input } from "app/components/ui/input";
 import { Label } from "app/components/ui/label";
 import { Icons } from "app/components/icons";
-import { cn } from "app/libs/utils";
+import { cn } from "@/app/libs/utils.js";
 import { useEffect, useState, useTransition } from "react";
 import axios from "axios";
 import { AxiosError } from "axios";
@@ -26,7 +26,7 @@ export default function Create({ variant }) {
   const [name, setName] = useState("");
   const [desc, setDesc] = useState("");
   const [imageNo, setImageNo] = useState(1);
-  const [image, setImage] = useState('/images/Community_1.jpg');
+  const [image, setImage] = useState("/images/Community_1.jpg");
   const [isLoading, setIsLoading] = useState(false);
   const [isPending, startTransition] = useTransition();
   const [open, setOpen] = useState(false);
@@ -37,7 +37,7 @@ export default function Create({ variant }) {
       const payload = {
         name: name,
         description: desc,
-        image: image
+        image: image,
       };
 
       setIsLoading(true);
@@ -70,7 +70,7 @@ export default function Create({ variant }) {
   };
   useEffect(() => {
     setImage(`/images/Community_${imageNo}.jpg`);
-  }, [imageNo])
+  }, [imageNo]);
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
@@ -81,13 +81,16 @@ export default function Create({ variant }) {
           Create
         </button>
       </DialogTrigger>
-      <DialogContent style={{ backgroundImage: `url(${image})` }} className="rounded-md max-w-[300px] sm:max-w-[425px] bg-cover border-2 font-extrabold text-white leading-6">
+      <DialogContent
+        style={{ backgroundImage: `url(${image})` }}
+        className="rounded-md max-w-[300px] sm:max-w-[425px] bg-cover border-2 font-extrabold text-white leading-6">
         <DialogHeader>
-          <DialogTitle className="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">Create Community</DialogTitle>
+          <DialogTitle className="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+            Create Community
+          </DialogTitle>
         </DialogHeader>
         <div className="grid gap-4 py-4">
           <div>
-
             <ul className="flex flex-wrap justify-between gap-5">
               <li>
                 <input
@@ -100,8 +103,9 @@ export default function Create({ variant }) {
                 />
                 <label
                   className="peer-checked:bg-black h-10 px-4 py-2 rounded-lg"
-                  for="inlineRadio1" >1</label
-                >
+                  for="inlineRadio1">
+                  1
+                </label>
               </li>
               <li>
                 <input
@@ -113,8 +117,9 @@ export default function Create({ variant }) {
                 />
                 <label
                   className="peer-checked:bg-black h-10 px-4 py-2 rounded-lg"
-                  for="inlineRadio2" >2</label
-                >
+                  for="inlineRadio2">
+                  2
+                </label>
               </li>
               <li>
                 <input
@@ -126,11 +131,12 @@ export default function Create({ variant }) {
                 />
                 <label
                   className="peer-checked:bg-black h-10 px-4 py-2 rounded-lg"
-                  for="inlineRadio3" >3</label
-                >
-              </li> <li>
+                  for="inlineRadio3">
+                  3
+                </label>
+              </li>{" "}
+              <li>
                 <input
-
                   className="hidden peer"
                   type="radio"
                   name="group"
@@ -139,8 +145,10 @@ export default function Create({ variant }) {
                 />
                 <label
                   className="peer-checked:bg-black h-10 px-4 py-2 rounded-lg"
-                  for="inlineRadio4" >4</label
-                ></li>
+                  for="inlineRadio4">
+                  4
+                </label>
+              </li>
               <li>
                 <input
                   className="hidden peer"
@@ -151,13 +159,16 @@ export default function Create({ variant }) {
                 />
                 <label
                   className="peer-checked:bg-black h-10 px-4 py-2 rounded-lg"
-                  for="inlineRadio5" >5</label
-                >
+                  for="inlineRadio5">
+                  5
+                </label>
               </li>
             </ul>
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+            <Label
+              htmlFor="name"
+              className="text-right drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
               Name
             </Label>
             <Input
@@ -168,7 +179,9 @@ export default function Create({ variant }) {
             />
           </div>
           <div className="grid grid-cols-4 items-center gap-4 ">
-            <Label htmlFor="desc" className="text-right justify-self-center drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+            <Label
+              htmlFor="desc"
+              className="text-right justify-self-center drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
               Description
             </Label>
             <Input

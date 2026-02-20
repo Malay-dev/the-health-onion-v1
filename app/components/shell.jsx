@@ -1,16 +1,11 @@
-import * as React from "react"
+import * as React from "react";
 
-import { cn } from "app/libs/utils"
+import { cn } from "@/app/libs/utils.js";
 
-
-export function DashboardShell({
-  children,
-  className,
-  ...props
-}) {
+export function DashboardShell({ children, className, ...props }) {
   return (
     <div className={cn("grid items-start gap-8 mt-8", className)} {...props}>
       {children}
     </div>
-  )
+  );
 }

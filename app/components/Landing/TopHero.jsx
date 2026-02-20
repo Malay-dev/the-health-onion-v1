@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { cn } from "app/libs/utils";
-import { buttonVariants } from "app/components/ui/button";
+import { cn } from "@/app/libs/utils.js";
+import { buttonVariants } from "@/app/components/ui/button";
 import { Bungee_Shade } from "next/font/google";
 import { Kreon } from "next/font/google";
 import { Chivo } from "next/font/google";
@@ -51,7 +51,7 @@ export default async function IndexPage() {
               target="_blank"
               rel="noreferrer"
               className={cn(
-                buttonVariants({ variant: "secondary", size: "default" })
+                buttonVariants({ variant: "secondary", size: "default" }),
               )}>
               GitHub
             </Link>

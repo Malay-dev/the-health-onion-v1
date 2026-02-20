@@ -1,4 +1,4 @@
-import prisma from "app/libs/prismadb";
+import prisma from "@/app/libs/prismadb";
 import {
   Card,
   CardContent,
@@ -13,8 +13,8 @@ import LikeButton from "../components/Like-Button";
 import CommentButton from "../components/Comment-Button";
 import DeleteButton from "../components/Delete-Button";
 import ShareButton from "../components/Share-Button";
-import { getCurrentUser } from "app/libs/session";
-import { formatTimeToNow } from "app/libs/utils";
+import { getCurrentUser } from "@/app/libs/session";
+import { formatTimeToNow } from "@/app/libs/utils.js";
 const PostPage = async ({ params }) => {
   const user = await getCurrentUser();
   const postId = params.postId;
@@ -49,13 +49,12 @@ const PostPage = async ({ params }) => {
           </Avatar>
           <p>{post.author.name}</p>
           <p> {formatTimeToNow(new Date(post.createdAt))}</p>
-
         </div>
 
         <CardTitle> {post.title}</CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col justify-center">
-        {post.image && <img src={post.image} alt="post" className='mb-5' />}
+        {post.image && <img src={post.image} alt="post" className="mb-5" />}
         <p>{post.content}</p>
       </CardContent>
 
@@ -74,7 +73,11 @@ const PostPage = async ({ params }) => {
             <ShareButton></ShareButton>
           </CardDescription>
           <CardDescription>
-            {(post.authorId === user.id) && <DeleteButton postId={postId} communityName={params.id}></DeleteButton>}
+            {post.authorId === user.id && (
+              <DeleteButton
+                postId={postId}
+                communityName={params.id}></DeleteButton>
+            )}
           </CardDescription>
         </div>
         <div className="w-full" id="comment">

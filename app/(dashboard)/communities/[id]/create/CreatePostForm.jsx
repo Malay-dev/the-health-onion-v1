@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import TextareaAutosize from "react-textarea-autosize";
 import { Button } from "app/components/ui/button";
 import { buttonVariants } from "app/components/ui/button";
-import { cn } from "app/libs/utils";
+import { cn } from "@/app/libs/utils.js";
 import {
   Card,
   CardContent,
@@ -57,7 +57,6 @@ const CreatePostForm = ({ community_name, communityId }) => {
 
       toast.success("Sucessfully posted");
 
-
       router.push(`/communities/${community_name}`);
       startTransition(() => router.refresh());
       return data;
@@ -66,7 +65,9 @@ const CreatePostForm = ({ community_name, communityId }) => {
         if (err.response?.status === 422) {
           toast.error("Invalid Title");
         }
-      } else { toast.error("There was an error"); }
+      } else {
+        toast.error("There was an error");
+      }
     } finally {
       setIsLoading(false);
     }
@@ -126,7 +127,7 @@ const CreatePostForm = ({ community_name, communityId }) => {
               }}
               appearance={{
                 button: `${cn(
-                  buttonVariants({ variant: "default" })
+                  buttonVariants({ variant: "default" }),
                 )} whitespace-pre`,
               }}
               endpoint="imageUploader"
@@ -159,7 +160,11 @@ const CreatePostForm = ({ community_name, communityId }) => {
           form="myform"
           size="lg"
           disabled={isMutating || isimageLoading}>
-          {isMutating ? <ReloadIcon className=" h-4 w-4 animate-spin" /> : "Post"}
+          {isMutating ? (
+            <ReloadIcon className=" h-4 w-4 animate-spin" />
+          ) : (
+            "Post"
+          )}
         </Button>
       </CardFooter>
     </Card>

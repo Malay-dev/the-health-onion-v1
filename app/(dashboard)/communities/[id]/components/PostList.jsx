@@ -1,10 +1,8 @@
-
-import { getCurrentUser } from "app/libs/session";
-import Post from "./Post"
-import prisma from "app/libs/prismadb";
+import { getCurrentUser } from "@/app/libs/session";
+import Post from "./Post";
+import prisma from "@/app/libs/prismadb";
 
 const PostList = async ({ community }) => {
-
   const user = await getCurrentUser();
 
   const posts = await prisma.post.findMany({
@@ -22,9 +20,12 @@ const PostList = async ({ community }) => {
     },
   });
 
-
   if (posts.length === 0) {
-    return <div className="text-xl text-black font-bold h-[75vh] flex items-center justify-center">Create posts and <br className="sm:hidden"></br>   share with community</div>;
+    return (
+      <div className="text-xl text-black font-bold h-[75vh] flex items-center justify-center">
+        Create posts and <br className="sm:hidden"></br> share with community
+      </div>
+    );
   }
 
   return (

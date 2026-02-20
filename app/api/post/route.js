@@ -1,5 +1,5 @@
-import { getCurrentUser } from "app/libs/session";
-import prisma from "app/libs/prismadb";
+import { getCurrentUser } from "@/libs/session";
+import prisma from "@/libs/prismadb";
 import { revalidatePath } from "next/cache";
 export async function POST(req) {
   try {
@@ -47,7 +47,7 @@ export async function POST(req) {
   } catch (error) {
     return new Response(
       "Could not post to community at this time. Please try later",
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

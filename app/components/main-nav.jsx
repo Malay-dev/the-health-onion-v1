@@ -2,9 +2,9 @@ import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Kreon } from "next/font/google";
-import UserAccountNav from "app/components/user-account-nav";
+import UserAccountNav from "@/app/components/user-account-nav";
 import { redirect } from "next/navigation";
-import { getCurrentUser } from "app/libs/session";
+import { getCurrentUser } from "@/libs/session";
 
 const kreon = Kreon({
   subsets: ["latin"],

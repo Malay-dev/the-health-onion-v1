@@ -7,14 +7,13 @@ const eczar = Eczar({
 });
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
-import prisma from "app/libs/prismadb";
+import prisma from "@/app/libs/prismadb";
 import LoadingInfoCard from "./components/LoadingInfoCard";
 const page = async ({ params, children }) => {
-
   const community = await prisma.community.findFirst({
     where: {
       name: params.id,
-    }
+    },
   });
   const isCommunity = !!community;
   if (!isCommunity) return notFound();

@@ -11,6 +11,6 @@
   },
   "aliases": {
     "components": "app/components",
-    "utils": "app/libs/utils"
+    "utils": "@/app/libs/utils.js"
   }
 }

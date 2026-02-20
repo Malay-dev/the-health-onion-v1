@@ -1,7 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from "app/components/ui/avatar";
 import { notFound } from "next/navigation";
-import prisma from "app/libs/prismadb";
-import { getCurrentUser } from "app/libs/session";
+import prisma from "@/app/libs/prismadb";
+import { getCurrentUser } from "@/app/libs/session";
 import SubscribeLeaveToggle from "./SubscribeLeaveToggle";
 import Link from "next/link";
 import { Button } from "app/components/ui/button";
@@ -25,13 +25,20 @@ const CommunityInfo = async ({ params }) => {
   });
 
   if (!community) return notFound();
-  const isSubscribed = community.subscribers.some(item => item.userId === user.id);
+  const isSubscribed = community.subscribers.some(
+    (item) => item.userId === user.id,
+  );
 
   return (
     <div className="community-container relative w-screen md:w-[350px] max-w-md h-fit bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-
       <div className="community-header p-5">
-        <Image height={500} width={500} className="rounded-t-lg w-screen object-cover md:w-[350px] h-52" src={community.image} alt="Community image" />
+        <Image
+          height={500}
+          width={500}
+          className="rounded-t-lg w-screen object-cover md:w-[350px] h-52"
+          src={community.image}
+          alt="Community image"
+        />
         <div className="community-info">
           <h5 className="mb-2 mt-3 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
             {community.name}
@@ -57,7 +64,12 @@ const CommunityInfo = async ({ params }) => {
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
           <p className="text-center text-black">{community.creator?.name}</p>
-          {user.id === community.creator.id && <DeleteButton communityName={community_name} user={user} className="self-end"></DeleteButton>}
+          {user.id === community.creator.id && (
+            <DeleteButton
+              communityName={community_name}
+              user={user}
+              className="self-end"></DeleteButton>
+          )}
         </div>
       </div>
       <div className="community-actions p-5 -mt-5 flex justify-between">
@@ -71,13 +83,14 @@ const CommunityInfo = async ({ params }) => {
         {isSubscribed && (
           <div className="create-post-button">
             <Button asChild variant={"secondary"}>
-              <Link href={`/communities/${community.name}/create`}>Create Post</Link>
+              <Link href={`/communities/${community.name}/create`}>
+                Create Post
+              </Link>
             </Button>
           </div>
         )}
       </div>
     </div>
-
   );
 };
 

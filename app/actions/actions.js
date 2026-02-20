@@ -1,7 +1,7 @@
 "use server";
 import { revalidateTag, revalidatePath } from "next/cache";
-import { getCurrentUser } from "app/libs/session";
-import prisma from "app/libs/prismadb";
+import { getCurrentUser } from "@/app/libs/session";
+import prisma from "@/app/libs/prismadb";
 import { redirect } from "next/navigation";
 export async function handleComment(comment, postId, user, replyToId) {
   try {

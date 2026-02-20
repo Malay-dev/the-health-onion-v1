@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
-import { authOptions } from "app/libs/authOptions";
-import { getCurrentUser } from "app/libs/session";
+import { authOptions } from "@/app/libs/authOptions";
+import { getCurrentUser } from "@/app/libs/session";
 import { DashboardHeader } from "app/components/header";
 import { DashboardShell } from "app/components/shell";
 import UserForm from "./components/userForm";

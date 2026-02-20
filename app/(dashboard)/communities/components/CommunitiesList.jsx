@@ -1,6 +1,6 @@
-import prisma from "app/libs/prismadb";
+import prisma from "@/app/libs/prismadb";
 import Link from "next/link";
-import { getCurrentUser } from "app/libs/session";
+import { getCurrentUser } from "@/app/libs/session";
 
 import {
   Tabs,
@@ -69,7 +69,7 @@ const CommunitiesList = async () => {
       },
     });
     const subscribedCommunities = subscriptionsWithCommunity.map(
-      (subscription) => subscription.community
+      (subscription) => subscription.community,
     );
     return (
       <Tabs defaultValue="all">

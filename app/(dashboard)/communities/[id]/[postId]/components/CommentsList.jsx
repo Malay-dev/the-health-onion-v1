@@ -1,7 +1,7 @@
 import React from "react";
 import CommentForm from "./CommentForm";
 import Comment from "./Comment";
-import prisma from "app/libs/prismadb";
+import prisma from "@/app/libs/prismadb";
 const Comments = async ({ user, postId }) => {
   const comments = await prisma.comment.findMany({
     where: {
@@ -26,7 +26,8 @@ const Comments = async ({ user, postId }) => {
       <div className="mx-auto  w-full">
         <div className="flex justify-between items-center mb-2">
           <h2 className="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">
-            Comments (<></>{comments.length})
+            Comments (<></>
+            {comments.length})
           </h2>
         </div>
         <CommentForm user={user} postId={postId} replyToId={null}></CommentForm>

@@ -1,14 +1,12 @@
 import { DashboardHeader } from "app/components/header";
 import { DashboardShell } from "app/components/shell";
 import CommunitiesCards from "./components/CommunitiesCards";
-import prisma from "app/libs/prismadb";
-import { getCurrentUser } from "app/libs/session";
+import prisma from "@/app/libs/prismadb";
+import { getCurrentUser } from "@/app/libs/session";
 import Quote from "inspirational-quotes";
 import { Kreon } from "next/font/google";
 import dynamic from "next/dynamic";
-const PostCarousel = dynamic(
-  () => import("./components/PostCarousel"),
-);
+const PostCarousel = dynamic(() => import("./components/PostCarousel"));
 const kreon = Kreon({
   subsets: ["latin"],
   weight: "variable",
@@ -52,12 +50,13 @@ export default async function PostsPage() {
             "{qoute}"
           </p>
         )}
-        <Image height={500} width={500}
+        <Image
+          height={500}
+          width={500}
           src="/images/Banner_dash_3.svg"
           alt="banner"
           className="block max-w-xl object-cover"></Image>
       </div>
-
 
       <DashboardShell>
         <div className=" md:w-[76vw]">
@@ -79,7 +78,6 @@ export default async function PostsPage() {
           </Suspense>
         </div>
       </DashboardShell>
-
     </div>
   );
 }

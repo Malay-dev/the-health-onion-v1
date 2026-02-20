@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
 import { useState, useTransition } from "react";
-import { formatTimeToNow } from "app/libs/utils";
-import { deleteComment } from "app/actions/actions"
+import { formatTimeToNow } from "@/app/libs/utils.js";
+import { deleteComment } from "app/actions/actions";
 const Reply = ({ reply, user }) => {
   const [rsettings, rsetSettings] = useState(false);
   const [isPending, startTransition] = useTransition();
@@ -54,13 +54,17 @@ const Reply = ({ reply, user }) => {
                 </a>
               </li>
               <li>
-                {reply.authorId === user.id && <button
-                  onClick={() => startTransition(async () => {
-                    await deleteComment(reply.postId, reply.id, null);
-                  })}
-                  className="block w-full text-left py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                  {isPending ? "Loading" : "Remove"}
-                </button>}
+                {reply.authorId === user.id && (
+                  <button
+                    onClick={() =>
+                      startTransition(async () => {
+                        await deleteComment(reply.postId, reply.id, null);
+                      })
+                    }
+                    className="block w-full text-left py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                    {isPending ? "Loading" : "Remove"}
+                  </button>
+                )}
               </li>
               <li>
                 <a

@@ -1,5 +1,5 @@
-import { getCurrentUser } from "app/libs/session";
-import prisma from "app/libs/prismadb";
+import { getCurrentUser } from "@/libs/session";
+import prisma from "@/libs/prismadb";
 
 export async function POST(req) {
   try {

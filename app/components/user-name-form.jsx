@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { useRouter } from "next/navigation"
-import { useForm } from "react-hook-form"
-import { cn } from "@/lib/utils"
-import { userNameSchema } from "@/lib/validations/user"
-import { buttonVariants } from "@/components/ui/button"
+import * as React from "react";
+import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { cn } from "@/lib/utils";
+import { userNameSchema } from "@/lib/validations/user";
+import { buttonVariants } from "@/app/components/ui/button";
 import {
   Card,
   CardContent,
@@ -13,28 +13,30 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { toast } from "@/components/ui/use-toast"
-import { Icons } from "@/components/icons"
+} from "@/app/components/ui/card";
+import { Input } from "@/app/components/ui/input";
+import { Label } from "@/app/components/ui/label";
+import { toast } from "@/app/components/ui/use-toast";
+import { Icons } from "@/app/components/icons";
 
 export function UserNameForm({ user, className, ...props }) {
-  const router = useRouter()
+  const router = useRouter();
   const {
     handleSubmit,
     register,
     formState: { errors },
-  } = useForm<FormData>({
+  } = useForm <
+  FormData >
+  {
     resolver: zodResolver(userNameSchema),
     defaultValues: {
       name: user?.name || "",
     },
-  })
-  const [isSaving, setIsSaving] = React.useState<boolean>(false)
+  };
+  const [isSaving, setIsSaving] = React.useState < boolean > false;
 
   async function onSubmit(data) {
-    setIsSaving(true)
+    setIsSaving(true);
 
     const response = await fetch(`/api/users/${user.id}`, {
       method: "PATCH",
@@ -44,31 +46,30 @@ export function UserNameForm({ user, className, ...props }) {
       body: JSON.stringify({
         name: data.name,
       }),
-    })
+    });
 
-    setIsSaving(false)
+    setIsSaving(false);
 
     if (!response?.ok) {
       return toast({
         title: "Something went wrong.",
         description: "Your name was not updated. Please try again.",
         variant: "destructive",
-      })
+      });
     }
 
     toast({
       description: "Your name has been updated.",
-    })
+    });
 
-    router.refresh()
+    router.refresh();
   }
 
   return (
     <form
       className={cn(className)}
       onSubmit={handleSubmit(onSubmit)}
-      {...props}
-    >
+      {...props}>
       <Card>
         <CardHeader>
           <CardTitle>Your Name</CardTitle>
@@ -97,8 +98,7 @@ export function UserNameForm({ user, className, ...props }) {
           <button
             type="submit"
             className={cn(buttonVariants(), className)}
-            disabled={isSaving}
-          >
+            disabled={isSaving}>
             {isSaving && (
               <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
             )}
@@ -107,5 +107,5 @@ export function UserNameForm({ user, className, ...props }) {
         </CardFooter>
       </Card>
     </form>
-  )
+  );
 }

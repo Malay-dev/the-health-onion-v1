@@ -9,9 +9,9 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "app/components/ui/dropdown-menu";
+} from "@/app/components/ui/dropdown-menu";
 import { UserAvatar } from "./user-avatar";
-import {GiHamburgerMenu} from "react-icons/gi"
+import { GiHamburgerMenu } from "react-icons/gi";
 export default function UserAccountNav({ user }) {
   return (
     <DropdownMenu>
@@ -20,7 +20,7 @@ export default function UserAccountNav({ user }) {
           user={{ name: user?.name || null, image: user?.image || null }}
           className="h-8 w-8 mr-3 md:mr-auto"
         />
-        <GiHamburgerMenu  className="h-5 w-5 md:hidden" ></GiHamburgerMenu>
+        <GiHamburgerMenu className="h-5 w-5 md:hidden"></GiHamburgerMenu>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <div className="flex items-center justify-start gap-2 p-2">

@@ -1,5 +1,5 @@
-import { getCurrentUser } from "app/libs/session";
-import prisma from "app/libs/prismadb";
+import { getCurrentUser } from "@/libs/session";
+import prisma from "@/libs/prismadb";
 
 export async function POST(req) {
   try {
@@ -37,7 +37,7 @@ export async function POST(req) {
     error;
     return new Response(
       "Could not subscribe to subreddit at this time. Please try later",
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
