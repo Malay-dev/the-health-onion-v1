@@ -1,15 +1,15 @@
-import { Avatar, AvatarFallback, AvatarImage } from "app/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { notFound } from "next/navigation";
-import prisma from "@/app/libs/prismadb";
-import { getCurrentUser } from "@/app/libs/session";
+import prisma from "@/libs/prismadb";
+import { getCurrentUser } from "@/libs/session";
 import SubscribeLeaveToggle from "./SubscribeLeaveToggle";
 import Link from "next/link";
-import { Button } from "app/components/ui/button";
+import { Button } from "@/components/ui/button";
 import DeleteButton from "./Community-Delete-Button";
 import Image from "next/image";
 const CommunityInfo = async ({ params }) => {
   const user = await getCurrentUser();
-  const community_name = params.id;
+  const community_name = await params.id;
   const community = await prisma.community.findFirst({
     where: { name: community_name },
     include: {

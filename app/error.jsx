@@ -1,19 +1,22 @@
 "use client";
-import { buttonVariants } from "@/app/components/ui/button";
-import { cn } from "./libs/utils.js";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/libs/utils";
 import { useEffect } from "react";
+
 export default function GlobalError({ error, reset }) {
   useEffect(() => {
     console.error(error);
   }, [error]);
+
   return (
-    <html className="h-screen">
-      <body className="text-black flex items-center justify-center h-screen flex-col">
-        <h2 className="font-bold  mb-5">Uh! Something went wrong!</h2>
-        <button className={cn(buttonVariants())} onClick={() => reset()}>
-          Try again
-        </button>
-      </body>
-    </html>
+    <div className="text-black flex items-center justify-center min-h-screen flex-col gap-4 p-4">
+      <h2 className="font-bold text-2xl">Oops! Something went wrong</h2>
+      <p className="text-gray-600 max-w-md text-center">
+        {error?.message || "An unexpected error occurred"}
+      </p>
+      <button className={cn(buttonVariants())} onClick={() => reset()}>
+        Try again
+      </button>
+    </div>
   );
 }

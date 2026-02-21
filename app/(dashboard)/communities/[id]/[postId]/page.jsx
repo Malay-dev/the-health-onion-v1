@@ -1,4 +1,4 @@
-import prisma from "@/app/libs/prismadb";
+import prisma from "@/libs/prismadb";
 import {
   Card,
   CardContent,
@@ -6,18 +6,24 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "app/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "app/components/ui/avatar";
+} from "@/components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import CommentsList from "./components/CommentsList";
 import LikeButton from "../components/Like-Button";
 import CommentButton from "../components/Comment-Button";
 import DeleteButton from "../components/Delete-Button";
 import ShareButton from "../components/Share-Button";
-import { getCurrentUser } from "@/app/libs/session";
-import { formatTimeToNow } from "@/app/libs/utils.js";
+import { getCurrentUser } from "@/libs/session";
+import { formatTimeToNow } from "@/libs/utils";
+
 const PostPage = async ({ params }) => {
   const user = await getCurrentUser();
-  const postId = params.postId;
+  const { id, postId } = await params;
+
+  if (!postId) {
+    console.log("Missing postId:", params);
+    return null;
+  }
 
   const post = await prisma.post.findUnique({
     where: {

@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { cn } from "@/app/libs/utils.js";
-import { Icons } from "@/app/components/icons";
+import { cn } from "@/libs/utils";
+import { Icons } from "@/components/icons";
 
 export function DashboardNav({ items }) {
   const path = usePathname();

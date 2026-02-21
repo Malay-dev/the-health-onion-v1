@@ -1,5 +1,5 @@
-import prisma from "@/app/libs/prismadb";
-import { getCurrentUser } from "@/app/libs/session";
+import prisma from "@/libs/prismadb";
+import { getCurrentUser } from "@/libs/session";
 import { redirect } from "next/navigation";
 import CreatePostForm from "./CreatePostForm";
 const page = async ({ params }) => {

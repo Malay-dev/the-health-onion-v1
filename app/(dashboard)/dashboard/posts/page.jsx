@@ -1,8 +1,8 @@
-import { DashboardHeader } from "app/components/header";
-import { DashboardShell } from "app/components/shell";
-import Post from "app/(dashboard)/communities/[id]/components/Post.jsx";
-import prisma from "@/app/libs/prismadb";
-import { getCurrentUser } from "@/app/libs/session";
+import { DashboardHeader } from "@/components/header";
+import { DashboardShell } from "@/components/shell";
+import Post from "@/(dashboard)/communities/[id]/components/Post.jsx";
+import prisma from "@/libs/prismadb";
+import { getCurrentUser } from "@/libs/session";
 export const metadata = {
   title: "My Posts",
 };

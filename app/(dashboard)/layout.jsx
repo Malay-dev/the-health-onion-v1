@@ -1,4 +1,4 @@
-import MainNav from "app/components/main-nav";
+import MainNav from "@/components/main-nav";
 
 export default async function CommunitiesLayout({ children }) {
   return (

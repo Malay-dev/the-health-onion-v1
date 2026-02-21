@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
 import Image from "next/image";
-import { buttonVariants } from "app/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -9,16 +9,16 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "app/components/ui/card";
+} from "@/components/ui/card";
 import { useState, useTransition } from "react";
 import { ReloadIcon } from "@radix-ui/react-icons";
-import { Input } from "app/components/ui/input";
-import { Label } from "app/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import toast from "react-hot-toast";
-import { cn } from "@/app/libs/utils.js";
+import { cn } from "@/libs/utils.js";
 import { generateComponents } from "@uploadthing/react";
 const { UploadButton } = generateComponents();
-import { handleUser } from "app/actions/actions";
+import { handleUser } from "@/actions/actions";
 const userForm = ({ user }) => {
   const [isPending, startTransition] = useTransition();
   const [isimageLoading, setIsimageLoading] = useState(false);

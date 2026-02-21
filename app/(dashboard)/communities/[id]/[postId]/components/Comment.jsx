@@ -2,8 +2,8 @@
 import { useState, useTransition } from "react";
 import CommentForm from "./CommentForm";
 import Reply from "./Reply";
-import { deleteComment } from "app/actions/actions";
-import { formatTimeToNow } from "@/app/libs/utils.js";
+import { deleteComment } from "@/actions/actions";
+import { formatTimeToNow } from "@/libs/utils.js";
 const Comment = ({ comment, user, key }) => {
   const [replyForm, setReplyForm] = useState(false);
   const [settings, setSettings] = useState(false);

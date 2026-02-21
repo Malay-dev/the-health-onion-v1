@@ -1,6 +1,6 @@
-import { getCurrentUser } from "@/app/libs/session";
+import { getCurrentUser } from "@/libs/session";
 import Post from "./Post";
-import prisma from "@/app/libs/prismadb";
+import prisma from "@/libs/prismadb";
 
 const PostList = async ({ community }) => {
   const user = await getCurrentUser();

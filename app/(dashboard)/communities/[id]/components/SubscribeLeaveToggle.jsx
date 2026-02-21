@@ -1,9 +1,9 @@
 "use client";
-import { Button } from "app/components/ui/button";
+import { Button } from "@/components/ui/button";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
-import { Icons } from "app/components/icons";
+import { Icons } from "@/components/icons";
 import { toast } from "react-hot-toast";
 import { ReloadIcon } from "@radix-ui/react-icons";
 

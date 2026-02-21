@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { cn } from "@/app/libs/utils.js";
-import { buttonVariants } from "@/app/components/ui/button";
+import { cn } from "@/libs/utils";
+import { buttonVariants } from "@/components/ui/button";
 import { Bungee_Shade } from "next/font/google";
 import { Kreon } from "next/font/google";
 import { Chivo } from "next/font/google";

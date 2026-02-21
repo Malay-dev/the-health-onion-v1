@@ -1,14 +1,13 @@
-import { DashboardHeader } from "app/components/header";
+import { DashboardHeader } from "@/components/header";
 import CommunitiesList from "./components/CommunitiesList";
 import Create from "./components/create-community-form";
-import { Suspense } from 'react'
+import { Suspense } from "react";
 import Loader from "./components/communityLoader";
 export const metadata = {
   title: "Communities",
 };
 
 export default async function Community() {
-
   return (
     <div className="container mt-5">
       <div className="text-black flex justify-between">

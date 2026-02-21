@@ -6,13 +6,13 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "app/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "app/components/ui/avatar";
+} from "@/components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import LikeButton from "./Like-Button";
 import CommentButton from "./Comment-Button";
 import ShareButton from "./Share-Button";
 import Link from "next/link";
-import { formatTimeToNow } from "@/app/libs/utils.js";
+import { formatTimeToNow } from "@/libs/utils.js";
 const Post = ({ item, user }) => {
   const voted = item.votes.some((vote) => vote.userId === user);
 

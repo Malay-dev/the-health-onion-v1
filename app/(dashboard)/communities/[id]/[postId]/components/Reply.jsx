@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
 import { useState, useTransition } from "react";
-import { formatTimeToNow } from "@/app/libs/utils.js";
-import { deleteComment } from "app/actions/actions";
+import { formatTimeToNow } from "@/libs/utils.js";
+import { deleteComment } from "@/actions/actions";
 const Reply = ({ reply, user }) => {
   const [rsettings, rsetSettings] = useState(false);
   const [isPending, startTransition] = useTransition();

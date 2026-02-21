@@ -1,11 +1,22 @@
-import { DashboardHeader } from "app/components/header";
-import { DashboardShell } from "app/components/shell";
+import { DashboardHeader } from "@/components/header";
+import { DashboardShell } from "@/components/shell";
 import CommunitiesCards from "./components/CommunitiesCards";
-import prisma from "@/app/libs/prismadb";
-import { getCurrentUser } from "@/app/libs/session";
-import Quote from "inspirational-quotes";
+import prisma from "@/libs/prismadb";
+import { getCurrentUser } from "@/libs/session";
 import { Kreon } from "next/font/google";
 import dynamic from "next/dynamic";
+
+// Local quotes array to replace problematic inspirational-quotes package
+const quotes = [
+  "The only people who never fail are those who never try.",
+  "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+  "Believe you can and you're halfway there.",
+  "The future belongs to those who believe in the beauty of their dreams.",
+  "It does not matter how slowly you go as long as you do not stop.",
+  "Everything you have ever wanted is on the other side of fear.",
+  "Do something today that your future self will thank you for.",
+];
+
 const PostCarousel = dynamic(() => import("./components/PostCarousel"));
 const kreon = Kreon({
   subsets: ["latin"],
@@ -20,8 +31,7 @@ export const metadata = {
 };
 
 export default async function PostsPage() {
-  const qoute = Quote.getRandomQuote();
-  console.log(qoute);
+  const qoute = quotes[Math.floor(Math.random() * quotes.length)];
   const user = await getCurrentUser();
   const posts = await prisma.post.findMany({
     include: {

@@ -2,7 +2,7 @@ import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Kreon } from "next/font/google";
-import UserAccountNav from "@/app/components/user-account-nav";
+import UserAccountNav from "@/components/user-account-nav";
 import { redirect } from "next/navigation";
 import { getCurrentUser } from "@/libs/session";
 

@@ -4,9 +4,9 @@ import { useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import TextareaAutosize from "react-textarea-autosize";
-import { Button } from "app/components/ui/button";
-import { buttonVariants } from "app/components/ui/button";
-import { cn } from "@/app/libs/utils.js";
+import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/libs/utils.js";
 import {
   Card,
   CardContent,
@@ -14,7 +14,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "app/components/ui/card";
+} from "@/components/ui/card";
 import { AxiosError } from "axios";
 import { toast } from "react-hot-toast";
 import { ReloadIcon } from "@radix-ui/react-icons";

@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { cn } from "@/lib/utils";
 import { userNameSchema } from "@/lib/validations/user";
-import { buttonVariants } from "@/app/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -13,11 +13,11 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/app/components/ui/card";
-import { Input } from "@/app/components/ui/input";
-import { Label } from "@/app/components/ui/label";
-import { toast } from "@/app/components/ui/use-toast";
-import { Icons } from "@/app/components/icons";
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { toast } from "@/components/ui/use-toast";
+import { Icons } from "@/components/icons";
 
 export function UserNameForm({ user, className, ...props }) {
   const router = useRouter();

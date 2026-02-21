@@ -1,13 +1,8 @@
-import prisma from "@/app/libs/prismadb";
+import prisma from "@/libs/prismadb";
 import Link from "next/link";
-import { getCurrentUser } from "@/app/libs/session";
+import { getCurrentUser } from "@/libs/session";
 
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "app/components/ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { BsPeople } from "react-icons/bs";
 import { Roboto_Condensed } from "next/font/google";
 

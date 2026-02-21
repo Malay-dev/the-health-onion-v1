@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { cn } from "@/app/libs/utils.js";
+import { cn } from "@/libs/utils";
 
 export function DashboardShell({ children, className, ...props }) {
   return (

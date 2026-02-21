@@ -1,9 +1,9 @@
 import React from "react";
 import Image from "next/image";
 import AuthForm from "./components/AuthForm";
-import { buttonVariants } from "@/app/components/ui/button.jsx";
+import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
-import { cn } from "@/app/libs/utils.js";
+import { cn } from "@/libs/utils";
 import { ArrowLeft } from "lucide-react/dist/esm/lucide-react";
 export const metadata = {
   title: "Login/Signup",

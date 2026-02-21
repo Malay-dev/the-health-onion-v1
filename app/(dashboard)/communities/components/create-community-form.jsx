@@ -1,5 +1,5 @@
 "use client";
-import { Button, buttonVariants } from "app/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -8,11 +8,11 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "app/components/ui/dialog";
-import { Input } from "app/components/ui/input";
-import { Label } from "app/components/ui/label";
-import { Icons } from "app/components/icons";
-import { cn } from "@/app/libs/utils.js";
+} from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Icons } from "@/components/icons";
+import { cn } from "@/libs/utils.js";
 import { useEffect, useState, useTransition } from "react";
 import axios from "axios";
 import { AxiosError } from "axios";

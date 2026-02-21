@@ -8,7 +8,7 @@ import {
   Circle,
 } from "lucide-react/dist/esm/lucide-react";
 
-import { cn } from "@/app/libs/utils.js";
+import { cn } from "@/libs/utils";
 
 const DropdownMenu = DropdownMenuPrimitive.Root;
 

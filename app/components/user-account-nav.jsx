@@ -9,7 +9,7 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/app/components/ui/dropdown-menu";
+} from "@/components/ui/dropdown-menu";
 import { UserAvatar } from "./user-avatar";
 import { GiHamburgerMenu } from "react-icons/gi";
 export default function UserAccountNav({ user }) {

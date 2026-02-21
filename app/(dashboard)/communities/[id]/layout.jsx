@@ -7,12 +7,13 @@ const eczar = Eczar({
 });
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
-import prisma from "@/app/libs/prismadb";
+import prisma from "@/libs/prismadb";
 import LoadingInfoCard from "./components/LoadingInfoCard";
 const page = async ({ params, children }) => {
+  const { id } = await params;
   const community = await prisma.community.findFirst({
     where: {
-      name: params.id,
+      name: id,
     },
   });
   const isCommunity = !!community;
@@ -28,7 +29,7 @@ const page = async ({ params, children }) => {
         <h1
           style={{ fontStyle: "italic", letterSpacing: "0.1em" }}
           className={`text-black text-center text-7xl tracking-wider  font-semibold italic ${eczar.className}`}>
-          {params.id}
+          {id}
         </h1>
       </div>
       <div className="container w-screen items-center md:items-start md:mt-5 md:gap-10 flex flex-col-reverse md:flex md:flex-row">
@@ -36,7 +37,7 @@ const page = async ({ params, children }) => {
 
         <div className="md:top-20 md:h-full md:sticky">
           <Suspense fallback={<LoadingInfoCard />}>
-            <CommunityInfo params={params} />
+            <CommunityInfo params={{ id }} />
           </Suspense>
         </div>
       </div>

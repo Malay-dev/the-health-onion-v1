@@ -1,8 +1,8 @@
 import { redirect } from "next/navigation";
-import { authOptions } from "@/app/libs/authOptions";
-import { getCurrentUser } from "@/app/libs/session";
-import { DashboardHeader } from "app/components/header";
-import { DashboardShell } from "app/components/shell";
+import { authOptions } from "@/libs/authOptions";
+import { getCurrentUser } from "@/libs/session";
+import { DashboardHeader } from "@/components/header";
+import { DashboardShell } from "@/components/shell";
 import UserForm from "./components/userForm";
 export const metadata = {
   title: "Settings",
